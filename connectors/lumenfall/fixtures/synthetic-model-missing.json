@@ -1,0 +1,22 @@
+{
+    "name": "synthetic-model-missing",
+    "description": "SYNTHETIC. Documented 404 for an unknown model id. Zero usage. The URL is literal because {model} is substituted before the call.",
+    "calls": [
+        {
+            "req": {
+                "method": "GET",
+                "url": "https://api.lumenfall.ai/openai/v1/models/missing"
+            },
+            "res": {
+                "status": 404,
+                "body": {
+                    "error": {
+                        "message": "Model 'missing' not found",
+                        "type": "invalid_request_error",
+                        "code": "MODEL_NOT_FOUND"
+                    }
+                }
+            }
+        }
+    ]
+}

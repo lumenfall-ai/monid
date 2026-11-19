@@ -250,6 +250,14 @@ identities use fixed models, one PNG per request and receipt-based token
 billing. See the connector guide for inputs, local use and the hosted
 artifact-storage integration boundary.
 
+## Lumenfall
+
+[Lumenfall](connectors/lumenfall) is the OpenAI-compatible gateway for chat,
+image generation, image edits, and asynchronous video. Callers pass a model id.
+Successful runs settle the response's own USD receipt (`metadata.cost`, or
+`usage.cost` on chat). The pre-run estimate is zero because each model has its
+own price. Image edits take HTTPS URLs or data URIs, not multipart file bytes.
+
 ## Learn more
 
 - [DEVELOPMENT.md](./DEVELOPMENT.md) covers hooks, the compiler, usage and

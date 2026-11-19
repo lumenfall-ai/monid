@@ -1,0 +1,21 @@
+{
+    "name": "synthetic-model-ok",
+    "description": "SYNTHETIC. One model object from the documented get-model response. Free. The URL is literal because the engine substitutes {model} before the call, so {{request.url}} still contains the placeholder.",
+    "calls": [
+        {
+            "req": {
+                "method": "GET",
+                "url": "https://api.lumenfall.ai/openai/v1/models/gemini-3-pro-image"
+            },
+            "res": {
+                "status": 200,
+                "body": {
+                    "id": "gemini-3-pro-image",
+                    "object": "model",
+                    "created": 1702300000,
+                    "owned_by": "google"
+                }
+            }
+        }
+    ]
+}

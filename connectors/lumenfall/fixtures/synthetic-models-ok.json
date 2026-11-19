@@ -1,0 +1,29 @@
+{
+    "name": "synthetic-models-ok",
+    "description": "SYNTHETIC. Model list from the documented response, trimmed to two entries. Free.",
+    "calls": [
+        {
+            "req": { "method": "GET", "url": "{{request.url}}" },
+            "res": {
+                "status": 200,
+                "body": {
+                    "object": "list",
+                    "data": [
+                        {
+                            "id": "gemini-3-pro-image",
+                            "object": "model",
+                            "created": 1702300000,
+                            "owned_by": "google"
+                        },
+                        {
+                            "id": "sora-2",
+                            "object": "model",
+                            "created": 1702300000,
+                            "owned_by": "openai"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

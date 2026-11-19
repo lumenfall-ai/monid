@@ -1,0 +1,47 @@
+{
+    "name": "synthetic-video-stop-settled",
+    "description": "SYNTHETIC. Submit queued, then stop deletes and the follow-up read is already completed, so the cost still settles. The cancel response is 200 rather than the vendor's 204: replay always JSON-encodes a body, and a 204 cannot carry one. The fn does not branch on the delete status.",
+    "calls": [
+        {
+            "req": { "method": "POST", "url": "{{request.url}}" },
+            "res": {
+                "status": 202,
+                "body": {
+                    "id": "video_abc123",
+                    "object": "video",
+                    "status": "queued"
+                }
+            }
+        },
+        {
+            "req": {
+                "method": "DELETE",
+                "url": "{{request.url}}/video_abc123"
+            },
+            "res": {
+                "status": 200,
+                "body": { "id": "video_abc123", "deleted": true }
+            }
+        },
+        {
+            "req": {
+                "method": "GET",
+                "url": "{{request.url}}/video_abc123"
+            },
+            "res": {
+                "status": 200,
+                "body": {
+                    "id": "video_abc123",
+                    "object": "video",
+                    "status": "completed",
+                    "output": {
+                        "url": "https://media.lumenfall.ai/video_abc123.mp4",
+                        "content_type": "video/mp4",
+                        "size_bytes": 128
+                    },
+                    "metadata": { "cost": 0.21, "cost_currency": "USD" }
+                }
+            }
+        }
+    ]
+}

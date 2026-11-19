@@ -1,0 +1,19 @@
+{
+    "name": "synthetic-provider-error",
+    "description": "SYNTHETIC. Documented authentication error (docs.lumenfall.ai/api-reference/introduction). Relayed as data, zero usage.",
+    "calls": [
+        {
+            "req": { "method": "POST", "url": "{{request.url}}" },
+            "res": {
+                "status": 401,
+                "body": {
+                    "error": {
+                        "message": "Invalid API key",
+                        "type": "authentication_error",
+                        "code": "AUTHENTICATION_FAILED"
+                    }
+                }
+            }
+        }
+    ]
+}

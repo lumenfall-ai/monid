@@ -1,0 +1,34 @@
+{
+    "name": "synthetic-chat-usage-cost",
+    "description": "SYNTHETIC. Chat completion whose only dollar receipt is OpenRouter-style usage.cost. metadata.cost is absent, so that field is the claim.",
+    "calls": [
+        {
+            "req": { "method": "POST", "url": "{{request.url}}" },
+            "res": {
+                "status": 200,
+                "body": {
+                    "id": "chatcmpl-cost",
+                    "object": "chat.completion",
+                    "created": 1702345678,
+                    "model": "google/gemini-3-flash-preview",
+                    "choices": [
+                        {
+                            "index": 0,
+                            "message": {
+                                "role": "assistant",
+                                "content": "Hello."
+                            },
+                            "finish_reason": "stop"
+                        }
+                    ],
+                    "usage": {
+                        "prompt_tokens": 2,
+                        "completion_tokens": 1,
+                        "total_tokens": 3,
+                        "cost": 0.04
+                    }
+                }
+            }
+        }
+    ]
+}

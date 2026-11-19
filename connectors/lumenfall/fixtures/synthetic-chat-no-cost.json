@@ -1,0 +1,33 @@
+{
+    "name": "synthetic-chat-no-cost",
+    "description": "SYNTHETIC. Documented chat response with token counts and no dollar receipt. The run succeeds and settles at zero.",
+    "calls": [
+        {
+            "req": { "method": "POST", "url": "{{request.url}}" },
+            "res": {
+                "status": 200,
+                "body": {
+                    "id": "chatcmpl-free",
+                    "object": "chat.completion",
+                    "created": 1702345678,
+                    "model": "google/gemini-3-flash-preview",
+                    "choices": [
+                        {
+                            "index": 0,
+                            "message": {
+                                "role": "assistant",
+                                "content": "Capybaras are calm."
+                            },
+                            "finish_reason": "stop"
+                        }
+                    ],
+                    "usage": {
+                        "prompt_tokens": 14,
+                        "completion_tokens": 4,
+                        "total_tokens": 18
+                    }
+                }
+            }
+        }
+    ]
+}

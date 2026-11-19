@@ -1,0 +1,19 @@
+{
+    "name": "synthetic-video-rejected",
+    "description": "SYNTHETIC. Submit rejected with the documented 402 insufficient balance. No poll, zero usage.",
+    "calls": [
+        {
+            "req": { "method": "POST", "url": "{{request.url}}" },
+            "res": {
+                "status": 402,
+                "body": {
+                    "error": {
+                        "message": "Insufficient balance",
+                        "type": "billing_error",
+                        "code": "INSUFFICIENT_BALANCE"
+                    }
+                }
+            }
+        }
+    ]
+}

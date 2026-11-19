@@ -242,6 +242,13 @@ export const LEAF_CATEGORIES = defineLeafCategories([
             "Generate images, including text-to-image, editing, and more.",
     },
     {
+        id: "text-generation",
+        displayName: "Text Generation",
+        description:
+            "Generate text from a conversation, including chat completions " +
+            "across many models.",
+    },
+    {
         id: "music-generation",
         displayName: "Music Generation",
         description:

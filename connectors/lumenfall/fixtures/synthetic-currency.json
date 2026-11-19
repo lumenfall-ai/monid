@@ -1,0 +1,19 @@
+{
+    "name": "synthetic-currency",
+    "description": "SYNTHETIC. Image success shape with a non-USD cost_currency. Rejected before billing.",
+    "calls": [
+        {
+            "req": { "method": "POST", "url": "{{request.url}}" },
+            "res": {
+                "status": 200,
+                "body": {
+                    "created": 1702345678,
+                    "data": [
+                        { "url": "https://media.lumenfall.ai/abc123.png" }
+                    ],
+                    "metadata": { "cost": 0.04, "cost_currency": "EUR" }
+                }
+            }
+        }
+    ]
+}

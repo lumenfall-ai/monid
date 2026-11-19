@@ -1,0 +1,30 @@
+{
+    "name": "synthetic-image-ok",
+    "description": "SYNTHETIC. Image generation success from the documented response (docs.lumenfall.ai/api-reference/images/generate, 2026-11-19). metadata.cost 0.04 USD is the receipt.",
+    "calls": [
+        {
+            "req": { "method": "POST", "url": "{{request.url}}" },
+            "res": {
+                "status": 200,
+                "body": {
+                    "created": 1702345678,
+                    "size": "1024x1024",
+                    "data": [
+                        {
+                            "url": "https://media.lumenfall.ai/abc123.png",
+                            "revised_prompt": "A capybara in a hot spring"
+                        }
+                    ],
+                    "metadata": {
+                        "model": "gemini-3-pro-image",
+                        "executed_model": "vertex/gemini-3-pro-image",
+                        "provider": "vertex",
+                        "provider_name": "Google Vertex AI",
+                        "cost": 0.04,
+                        "cost_currency": "USD"
+                    }
+                }
+            }
+        }
+    ]
+}

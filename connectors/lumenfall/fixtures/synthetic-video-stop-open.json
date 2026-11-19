@@ -1,0 +1,46 @@
+{
+    "name": "synthetic-video-stop-open",
+    "description": "SYNTHETIC. Cancel is acknowledged and the follow-up read is still in_progress, so stop is UNRESOLVED and nothing settles. Cancel is 200 rather than the vendor's 204 because replay cannot attach a body to 204.",
+    "calls": [
+        {
+            "req": { "method": "POST", "url": "{{request.url}}" },
+            "res": {
+                "status": 202,
+                "body": {
+                    "id": "video_abc123",
+                    "object": "video",
+                    "status": "queued"
+                }
+            }
+        },
+        {
+            "req": {
+                "method": "DELETE",
+                "url": "{{request.url}}/video_abc123"
+            },
+            "res": {
+                "status": 200,
+                "body": { "id": "video_abc123", "deleted": true }
+            }
+        },
+        {
+            "req": {
+                "method": "GET",
+                "url": "{{request.url}}/video_abc123"
+            },
+            "res": {
+                "status": 200,
+                "body": {
+                    "id": "video_abc123",
+                    "object": "video",
+                    "status": "in_progress",
+                    "output": null,
+                    "metadata": {
+                        "cost_estimate": 0.21,
+                        "cost_currency": "USD"
+                    }
+                }
+            }
+        }
+    ]
+}

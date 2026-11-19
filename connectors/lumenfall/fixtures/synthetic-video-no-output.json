@@ -1,0 +1,33 @@
+{
+    "name": "synthetic-video-no-output",
+    "description": "SYNTHETIC. Completed poll with a cost but no output.url. Synthesized 502, zero usage.",
+    "calls": [
+        {
+            "req": { "method": "POST", "url": "{{request.url}}" },
+            "res": {
+                "status": 202,
+                "body": {
+                    "id": "video_abc123",
+                    "object": "video",
+                    "status": "queued"
+                }
+            }
+        },
+        {
+            "req": {
+                "method": "GET",
+                "url": "{{request.url}}/video_abc123"
+            },
+            "res": {
+                "status": 200,
+                "body": {
+                    "id": "video_abc123",
+                    "object": "video",
+                    "status": "completed",
+                    "output": null,
+                    "metadata": { "cost": 0.21, "cost_currency": "USD" }
+                }
+            }
+        }
+    ]
+}
