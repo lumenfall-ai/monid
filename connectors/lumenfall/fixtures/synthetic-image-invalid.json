@@ -1,0 +1,13 @@
+{
+    "name": "synthetic-image-invalid",
+    "description": "SYNTHETIC. HTTP 200 image body with neither data nor metadata.cost. The lifecycle synthesizes 502 and nothing is billed.",
+    "calls": [
+        {
+            "req": { "method": "POST", "url": "{{request.url}}" },
+            "res": {
+                "status": 200,
+                "body": { "created": 1702345678 }
+            }
+        }
+    ]
+}

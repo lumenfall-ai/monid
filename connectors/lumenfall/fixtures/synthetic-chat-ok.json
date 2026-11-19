@@ -1,0 +1,37 @@
+{
+    "name": "synthetic-chat-ok",
+    "description": "SYNTHETIC. Chat completion from the documented response, plus metadata.cost so the dollar receipt can settle. Token counts stay on the output.",
+    "calls": [
+        {
+            "req": { "method": "POST", "url": "{{request.url}}" },
+            "res": {
+                "status": 200,
+                "body": {
+                    "id": "chatcmpl-abc123",
+                    "object": "chat.completion",
+                    "created": 1702345678,
+                    "model": "google/gemini-3-flash-preview",
+                    "choices": [
+                        {
+                            "index": 0,
+                            "message": {
+                                "role": "assistant",
+                                "content": "Capybaras are calm."
+                            },
+                            "finish_reason": "stop"
+                        }
+                    ],
+                    "usage": {
+                        "prompt_tokens": 14,
+                        "completion_tokens": 4,
+                        "total_tokens": 18
+                    },
+                    "metadata": {
+                        "cost": 0.04,
+                        "cost_currency": "USD"
+                    }
+                }
+            }
+        }
+    ]
+}

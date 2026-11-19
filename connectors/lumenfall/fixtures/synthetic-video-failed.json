@@ -1,0 +1,36 @@
+{
+    "name": "synthetic-video-failed",
+    "description": "SYNTHETIC. Submit queued, then a failed poll with the documented error object. Zero usage.",
+    "calls": [
+        {
+            "req": { "method": "POST", "url": "{{request.url}}" },
+            "res": {
+                "status": 202,
+                "body": {
+                    "id": "video_abc123",
+                    "object": "video",
+                    "status": "queued"
+                }
+            }
+        },
+        {
+            "req": {
+                "method": "GET",
+                "url": "{{request.url}}/video_abc123"
+            },
+            "res": {
+                "status": 200,
+                "body": {
+                    "id": "video_abc123",
+                    "object": "video",
+                    "status": "failed",
+                    "output": null,
+                    "error": {
+                        "code": "generation_failed",
+                        "message": "The provider rejected the prompt."
+                    }
+                }
+            }
+        }
+    ]
+}

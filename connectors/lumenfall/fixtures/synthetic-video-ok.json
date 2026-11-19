@@ -1,0 +1,72 @@
+{
+    "name": "synthetic-video-ok",
+    "description": "SYNTHETIC. Video submit 202 queued, one in_progress poll, then completed with output.url and metadata.cost 0.21 USD. Shapes from the generate and get docs, 2026-11-19.",
+    "calls": [
+        {
+            "req": { "method": "POST", "url": "{{request.url}}" },
+            "res": {
+                "status": 202,
+                "body": {
+                    "id": "video_abc123",
+                    "object": "video",
+                    "created_at": 1702345678,
+                    "status": "queued",
+                    "model": "sora-2",
+                    "seconds": "5",
+                    "size": "1920x1080",
+                    "metadata": {
+                        "cost_estimate": 0.21,
+                        "cost_currency": "USD"
+                    }
+                }
+            }
+        },
+        {
+            "req": {
+                "method": "GET",
+                "url": "{{request.url}}/video_abc123"
+            },
+            "res": {
+                "status": 200,
+                "body": {
+                    "id": "video_abc123",
+                    "object": "video",
+                    "status": "in_progress",
+                    "output": null,
+                    "error": null,
+                    "metadata": {
+                        "cost_estimate": 0.21,
+                        "cost_currency": "USD"
+                    }
+                }
+            }
+        },
+        {
+            "req": {
+                "method": "GET",
+                "url": "{{request.url}}/video_abc123"
+            },
+            "res": {
+                "status": 200,
+                "body": {
+                    "id": "video_abc123",
+                    "object": "video",
+                    "status": "completed",
+                    "completed_at": 1702345720,
+                    "expires_at": 1702432120,
+                    "output": {
+                        "url": "https://media.lumenfall.ai/video_abc123.mp4",
+                        "content_type": "video/mp4",
+                        "size_bytes": 128
+                    },
+                    "error": null,
+                    "metadata": {
+                        "model": "sora-2",
+                        "cost": 0.21,
+                        "cost_currency": "USD"
+                    }
+                }
+            }
+        }
+    ]
+}

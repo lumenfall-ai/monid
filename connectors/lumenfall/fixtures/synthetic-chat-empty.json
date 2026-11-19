@@ -1,0 +1,17 @@
+{
+    "name": "synthetic-chat-empty",
+    "description": "SYNTHETIC. HTTP 200 chat body with an empty choices array. The lifecycle synthesizes 502.",
+    "calls": [
+        {
+            "req": { "method": "POST", "url": "{{request.url}}" },
+            "res": {
+                "status": 200,
+                "body": {
+                    "id": "chatcmpl-empty",
+                    "object": "chat.completion",
+                    "choices": []
+                }
+            }
+        }
+    ]
+}

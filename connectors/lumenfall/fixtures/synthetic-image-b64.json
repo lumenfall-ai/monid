@@ -1,0 +1,21 @@
+{
+    "name": "synthetic-image-b64",
+    "description": "SYNTHETIC. Image success that returns b64_json instead of a URL, still with a USD receipt.",
+    "calls": [
+        {
+            "req": { "method": "POST", "url": "{{request.url}}" },
+            "res": {
+                "status": 200,
+                "body": {
+                    "created": 1702345678,
+                    "size": "512x512",
+                    "data": [{ "b64_json": "aGVsbG8=" }],
+                    "metadata": {
+                        "cost": 0.04,
+                        "cost_currency": "USD"
+                    }
+                }
+            }
+        }
+    ]
+}
